@@ -1,0 +1,10 @@
+git YouTube intro https://www.youtube.com/watch?v=0fKg7e37bQE
+
+git commands (must be in local directory where project files are)
+
+git clone - copies project to local from github
+git status - shows difference between whats in github and whats local
+git add filename (or -A for all) - tells github that there is a new local file to be tracked for the project (doesn't actually put the file in github)
+git commit -m "message" filename - puts file info into repository but doesn't copy file to github
+git push - sends whatever needs to go from local to github
+git pull - copies to local whatever is in github that isn't on local yet

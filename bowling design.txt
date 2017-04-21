@@ -1,0 +1,32 @@
+Folder/file structure:
+
+bowling
+	bowling_admin
+		index.php
+	bowling_league
+		index.php
+	bowling_player
+		index.php
+	bowling_team
+		index.php
+	index.php
+	errors
+		database_error.php
+		error.php
+	images
+		bowling.png
+	model
+		database.php
+		players.php
+		teams.php
+	view
+		header.php
+		footer.php
+		main.css
+
+
+
+All view files should include header and footer:
+	<?php include 'view/header.php'; ?>
+	<?php include 'view/footer.php'; ?>
+	
