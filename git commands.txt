@@ -1,4 +1,5 @@
 git YouTube intro https://www.youtube.com/watch?v=0fKg7e37bQE
+followon to first video: https://www.youtube.com/watch?v=oFYyTZwMyAg
 
 git commands (must be in local directory where project files are)
 
@@ -8,3 +9,36 @@ git add filename (or -A for all) - tells github that there is a new local file t
 git commit -m "message" filename - puts file info into repository but doesn't copy file to github
 git push - sends whatever needs to go from local to github
 git pull - copies to local whatever is in github that isn't on local yet
+
+git branch - shows branches
+git branch branchname - creates a copy of master (or parent branch)
+git checkout branchname - changes focus to working on branchname copy
+
+
+
+common workflow steps:
+git checkout master
+git pull
+git branch to see branches
+git branch branchname to create a new branch (creates a full local copy)
+git checkout branchname to change to branch you want to work on
+edit files
+git checkout master to switch to master branch
+git pull to get anyone else's changes since last pull
+    if changes:
+	git checkout branchname to get back to branch working on
+	git merge master to merge the other's changes
+	if conflicts: look at file and resolve 
+git status
+git add -A
+git commit (Esc :wq to finish comment) (or git commit -m "comment")
+git push (may need to add destination branch)
+in github gui:
+	do a pull request
+	review changes
+	merge
+	delete branch
+
+ 
+
+
