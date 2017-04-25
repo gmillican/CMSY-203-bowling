@@ -1,5 +1,6 @@
+<?php include '../view/header.php'; ?>  <!-- team -->
 <main>
-    <?php include '../view/header.php'; ?>
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <aside>
         <h1>Categories</h1>
         <nav>

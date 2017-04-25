@@ -1,6 +1,6 @@
-<?php include '../view/header.php'; ?>
- <link rel="stylesheet" type="text/css" href="main.css"> 
+<?php include '../view/header.php'; ?>  <!-- admin -->
 <main>
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <h1>Add Product</h1>
     <form action="index.php" method="post" id="add_product_form">
         <input type="hidden" name="action" value="add_product">

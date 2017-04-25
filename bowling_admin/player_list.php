@@ -1,5 +1,6 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php'; ?>  <!-- admin -->
 <main>
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <h1>Product List</h1>
 
     <aside>

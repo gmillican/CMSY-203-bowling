@@ -1,5 +1,6 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php'; ?>  <!-- league -->
 <main>
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <aside>
         <h1>Categories</h1>
         <nav>
