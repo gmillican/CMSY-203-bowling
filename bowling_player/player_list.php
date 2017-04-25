@@ -1,5 +1,5 @@
-<main>
-     <link rel="stylesheet" type="text/css" href="main.css"> 
+<main>  <!-- player -->
+     <link rel="stylesheet" type="text/css" href="../main.css">
     <?php include '../view/header.php'; ?>
     <aside>
         <h1>Categories</h1>
