@@ -2,15 +2,15 @@
 <main>
     <link rel="stylesheet" type="text/css" href="../main.css">
     <aside>
-        <h1>Categories</h1>
+        <h1>Teams</h1>
         <nav>
             <ul>
                 <!-- display links for all categories -->
                 <?php foreach($categories as $category) : ?>
                 <li>
                     <a href="?category_id=<?php 
-                              echo $category['categoryID']; ?>">
-                        <?php echo $category['categoryName']; ?>
+                              echo $category['team_id']; ?>">
+                        <?php echo $category['team_name']; ?>
                     </a>
                 </li>
                 <?php endforeach; ?>
@@ -33,8 +33,8 @@
                  (You save $<?php echo $discount_amount_f; ?>)</p>
             <form action="<?php echo '../cart' ?>" method="post">
                 <input type="hidden" name="action" value="add">
-                <input type="hidden" name="product_id"
-                       value="<?php echo $product_id; ?>">
+                <input type="hidden" name="team_id"
+                       value="<?php echo $team_id; ?>">
                 <b>Quantity:</b>
                 <input id="quantity" type="text" name="quantity" 
                        value="1" size="2">

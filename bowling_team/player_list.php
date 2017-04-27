@@ -1,15 +1,15 @@
-<?php include '../view/header.php'; ?>  <!-- team -->
+<?php include '../view/header.php'; ?>
+<!--another change-->
 <main>
-    <link rel="stylesheet" type="text/css" href="../main.css">
     <aside>
-        <h1>Categories</h1>
+        <h1>Team View</h1>
         <nav>
         <ul>
-            <!-- display links for all categories -->
-            <?php foreach($categories as $category) : ?>
+            <!-- display links for all team -->
+            <?php foreach($team as $category) : ?>
             <li>
-                <a href="?category_id=<?php echo $category['categoryID']; ?>">
-                    <?php echo $category['categoryName']; ?>
+                <a href="?category_id=<?php echo $category['team_id']; ?>">
+                    <?php echo $category['team_name']; ?>
                 </a>
             </li>
             <?php endforeach; ?>
@@ -20,12 +20,12 @@
         <h1><?php echo $category_name; ?></h1>
         <nav>
         <ul>
-            <!-- display links for products in selected category -->
-            <?php foreach ($products as $product) : ?>
+            <!-- display links for playerss in selected category -->
+            <?php foreach ($playerss as $players) : ?>
             <li>
-                <a href="?action=view_product&amp;product_id=<?php 
-                          echo $product['productID']; ?>">
-                    <?php echo $product['productName']; ?>
+                <a href="?action=view_players&amp;players_id=<?php 
+                          echo $players['team_id']; ?>">
+                    <?php echo $players['first_name']; ?>
                 </a>
             </li>
             <?php endforeach; ?>

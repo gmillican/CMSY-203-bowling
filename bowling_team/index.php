@@ -1,40 +1,46 @@
 <?php   //team
 require('../model/database.php');
-require('../model/product_db.php');
+require('../model/players_db.php');
 require('../model/category_db.php');
+
+
+
+//Testing Github changes
+
+
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
-        $action = 'list_products';
+        $action = 'team_name';
     }
 }  
 
-if ($action == 'list_products') {
-    $category_id = filter_input(INPUT_GET, 'category_id', 
+if ($action == 'team_name') {
+    $category_id = filter_input(INPUT_GET, 'team_id', 
             FILTER_VALIDATE_INT);
     if ($category_id == NULL || $category_id == FALSE) {
         $category_id = 1;
     }
-    $categories = get_categories();
+    $team = get_team();
     $category_name = get_category_name($category_id);
-    $products = get_products_by_category($category_id);
+    $playerss = get_playerss_by_category($category_id);
     include('player_list.php');
-} else if ($action == 'view_product') {
-    $product_id = filter_input(INPUT_GET, 'product_id', 
+} else if ($action == 'view_players') {
+    $players_id = filter_input(INPUT_GET, 'players_id', 
             FILTER_VALIDATE_INT);   
-    if ($product_id == NULL || $product_id == FALSE) {
-        $error = 'Missing or incorrect product id.';
+    if ($players_id == NULL || $players_id == FALSE) {
+        $error = 'Missing or incorrect players id.';
         include('../errors/error.php');
     } else {
-        $categories = get_categories();
-        $product = get_product($product_id);
+        $team = get_team();
+        $players = get_players($players_id);
 
-        // Get product data
-        $code = $product['productCode'];
-        $name = $product['productName'];
-        $list_price = $product['listPrice'];
+        // Get players data
+        $code = $players['team_id'];
+        $name = $players['player_name'];
+        $list_price = $players['listPrice'];
 
         // Calculate discounts
         $discount_percent = 30;  // 30% off for all web orders
