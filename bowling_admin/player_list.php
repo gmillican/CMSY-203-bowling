@@ -1,53 +1,88 @@
-<?php include '../view/header.php'; ?>  <!-- admin -->
+<?php include '../view/header.php'; ?>
 <main>
-    <link rel="stylesheet" type="text/css" href="../main.css">
-    <h1>Product List</h1>
+    <h1>Player List</h1>
 
     <aside>
-        <!-- display a list of categories -->
-        <h2>Categories</h2>
+        <!-- display a list of teams -->
+        <h2>Teams</h2>
         <nav>
         <ul>
-        <?php foreach ($categories as $category) : ?>
+        <?php foreach ($teams as $team) : ?>
             <li>
-            <a href="?category_id=<?php echo $category['categoryID']; ?>">
-                <?php echo $category['categoryName']; ?>
+            <a href="?team_id=<?php echo $team['team_id']; ?>">
+                <?php echo $team['team_name']; ?>
             </a>
             </li>
         <?php endforeach; ?>
+		<li><a href = "?action=show_team_form">+NEW TEAM</a></li>
         </ul>
         </nav>
     </aside>
 
     <section>
-        <!-- display a table of products -->
-        <h2><?php echo $category_name; ?></h2>
+        <!-- display a table of players -->
+        <h2><?php echo $team_name; ?></h2>
+		
+		<label>Wins: <?php echo $team_wins; ?></label> 
+		<form action="." method="post">
+                    <input type="hidden" name="action"
+                           value="add_win">
+                    <input type="hidden" name="team_id"
+                           value="<?php echo $team_id; ?>">
+					<input type="hidden" name="wins"
+                           value="<?php echo $team_wins + 1; ?>">   
+                    <input type="submit" value="+">
+        </form><br>
+		
+		<label>Losses: <?php echo $team_loss; ?></label> 
+		<form action="." method="post">
+                    <input type="hidden" name="action"
+                           value="add_loss">
+                    <input type="hidden" name="team_id"
+                           value="<?php echo $team_id; ?>">
+					<input type="hidden" name="loss"
+                           value="<?php echo $team_loss + 1; ?>"> 
+                    <input type="submit" value="+">
+        </form><br>	
+		<br>
         <table>
             <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th class="right">Price</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Sex</th>
+				<th>Average</th>
                 <th>&nbsp;</th>
+				<th>&nbsp;</th>
             </tr>
-            <?php foreach ($products as $product) : ?>
+            <?php foreach ($players as $player) : ?>
             <tr>
-                <td><?php echo $product['productCode']; ?></td>
-                <td><?php echo $product['productName']; ?></td>
-                <td class="right"><?php echo $product['listPrice']; ?></td>
+                <td><?php echo $player['first_name']; ?></td>
+                <td><?php echo $player['last_name']; ?></td>
+                <td><?php echo $player['sex']; ?></td>
+				<td><?php echo $player['avg']; ?></td>
+				
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
-                           value="delete_product">
-                    <input type="hidden" name="product_id"
-                           value="<?php echo $product['productID']; ?>">
-                    <input type="hidden" name="category_id"
-                           value="<?php echo $product['categoryID']; ?>">
+                           value="delete_player">
+                    <input type="hidden" name="player_id"
+                           value="<?php echo $player['player_id']; ?>">
+                    <input type="hidden" name="team_id"
+                           value="<?php echo $player['team_id']; ?>">
                     <input type="submit" value="Delete">
+                </form></td>
+				
+				<td><form action="." method="post">
+                    <input type="hidden" name="action"
+                           value="show_edit_form">
+                    <input type="hidden" name="player_id"
+                           value="<?php echo $player['player_id']; ?>">
+                    <input type="submit" value="Edit">
                 </form></td>
             </tr>
             <?php endforeach; ?>
         </table>
         <p class="last_paragraph">
-            <a href="?action=show_add_form">Add Product</a>
+            <a href="?action=show_add_form">Add player</a>
         </p>
     </section>
 </main>
