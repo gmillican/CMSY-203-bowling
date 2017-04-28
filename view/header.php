@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" type="text/css"
-          href="main.css">   
+          href="../main.css">   
 <!-- the head section -->
 <head>
     <title>CMSY 203 Bowling League</title>
