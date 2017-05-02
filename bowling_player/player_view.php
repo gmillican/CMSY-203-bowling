@@ -11,7 +11,7 @@ $player_info = get_player($player_id);
     <p> Sex: <?php echo $player_info['sex']; ?></p>
     <p> Average: <?php echo $player_info['avg']; ?></p>
     <a href="?action=list_players&amp;team_id=<?php echo $player_info['team_id']; ?>">
-                    Return</a>
+                    Back</a>
   
 </main>
 <?php include '../view/footer.php'; ?>
