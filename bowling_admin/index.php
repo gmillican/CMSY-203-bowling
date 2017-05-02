@@ -16,7 +16,7 @@ if ($action == 'list_players') {
             FILTER_VALIDATE_INT);
 			
     if ($team_id == NULL || $team_id == FALSE) {
-        $team_id = 1;
+        $team_id = get_first_team_id();
     }
     $team_name = get_team_name($team_id);
 	$team_wins = get_team_wins($team_id);

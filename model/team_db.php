@@ -91,4 +91,16 @@ function add_loss($team_id, $loss){
     $statement->closeCursor();
 }
 }
+
+function get_first_team_id() {
+    global $db;
+    $query = 'SELECT team_id FROM teams
+              ORDER BY team_id';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $team = $statement->fetch();
+    $statement->closeCursor();
+    return $team[0];
+}
+
 ?>
