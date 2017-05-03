@@ -34,12 +34,9 @@
             <?php foreach ($players as $player) : ?>
             <tr>
                 <td><?php echo $player['first_name']; ?></td>
-                <td><a href="?action=view_player&amp;player_id=<?php 
-                          echo $player['player_id']; ?>" >
-                    <?php echo $player['last_name']; ?> </a> </td>
-                
+                <td><?php echo $player['last_name']; ?></td>
                 <td><?php echo $player['sex']; ?></td>
-		<td><?php echo $player['avg']; ?></td>
+				<td><?php echo $player['avg']; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>

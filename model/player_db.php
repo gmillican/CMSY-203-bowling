@@ -24,6 +24,8 @@ function get_player($player_id) {
     return $player;
 }
 
+
+
 function delete_player($player_id) {
     global $db;
     $query = 'DELETE FROM players
