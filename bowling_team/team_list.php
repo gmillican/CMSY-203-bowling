@@ -32,14 +32,16 @@
     
         <!-- display a table of teams -->
         <h2><?php echo $team_name; ?></h2>
-		
+		<table>
+		<th>
 		<label>Wins: <?php echo $team_wins; ?></label> 
-		<br>		
-		<label>Losses: <?php echo $team_loss; ?></label> 
-		
-		
-		<br>	
 		<br>
+		</th>
+		<th>		
+		<label>Losses: <?php echo $team_loss; ?></label> </th>
+		</table>
+		
+	
         <table>
             <tr>
                 <th>First Name</th>
