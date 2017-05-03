@@ -1,0 +1,38 @@
+CREATE DATABASE bowling;
+use bowling;
+drop user demo@localhost;
+flush privileges;
+create user 'demo'@'localhost' identified by 'demo';
+GRANT ALL PRIVILEGES on bowling.* to 'demo'@'localhost' IDENTIFIED by 'demo';
+CREATE TABLE teams(team_id int not null auto_increment,team_name varchar(20),won int, lost int , primary key(team_id) );
+CREATE TABLE players(player_id int not null auto_increment, first_name varchar(20), last_name varchar(20),
+sex char, avg int ,team_id int,primary key(player_id),
+CONSTRAINT foreign key(team_id) references teams(team_id) ON DELETE CASCADE , 
+constraint uc_player unique(first_name,last_name) );
+CREATE TABLE league(name varchar(20));
+insert into teams(team_name,won,lost) values('KINGPINS',5,4);
+insert into teams(team_name,won,lost) values('SPLITS',4,5);
+insert into teams(team_name,won,lost) values('ALLEY CATS',3,6);
+insert into teams(team_name,won,lost) values('TERMINATORS',5,4);
+insert into players(first_name,last_name,sex,avg,team_id) values('Bill','Parlock','M',182,1);
+insert into players(first_name,last_name,sex,avg,team_id) values('Chuck','Harris','M',171,1);
+insert into players(first_name,last_name,sex,avg,team_id) values('Nancy','Smith','F',170,1);
+insert into players(first_name,last_name,sex,avg,team_id) values('Clare','Oreily','F',165,1);
+insert into players(first_name,last_name,sex,avg,team_id) values('Howard','Michaels','M',130,2);
+insert into players(first_name,last_name,sex,avg,team_id) values('Rob','Paulson','M',185,2);
+insert into players(first_name,last_name,sex,avg,team_id) values('Pat','Roberts','F',172,2);
+insert into players(first_name,last_name,sex,avg,team_id) values('Ann','Dennis','F',190,2);
+insert into players(first_name,last_name,sex,avg,team_id) values('Deb','McCune','F',187,3);
+insert into players(first_name,last_name,sex,avg,team_id) values('Bob','McCune','M',162,3);
+insert into players(first_name,last_name,sex,avg,team_id) values('Jeanne','Myers','F',171,3);
+insert into players(first_name,last_name,sex,avg,team_id) values('John','Myers','M',180,3);
+insert into players(first_name,last_name,sex,avg,team_id) values('Kate','McGuire','F',170,4);
+insert into players(first_name,last_name,sex,avg,team_id) values('John','McGuire','M',173,4);
+insert into players(first_name,last_name,sex,avg,team_id) values('Kathy','McGuire','F',145,4);
+insert into players(first_name,last_name,sex,avg,team_id) values('Kim','Smith','F',125,4);
+insert into league values('HCC Dragons');
+
+
+
+
+

@@ -58,7 +58,7 @@ function edit_player($player_id, $team_id, $first_name, $last_name, $sex, $avg) 
               SET team_id = :team_id,
 			  first_name = :first_name,
 			  last_name = :last_name,
-			  sex = :sex
+			  sex = :sex,
 			  avg = :avg
 			  WHERE player_id = :player_id';
     $statement = $db->prepare($query);
@@ -70,5 +70,16 @@ function edit_player($player_id, $team_id, $first_name, $last_name, $sex, $avg) 
 	$statement->bindValue(':avg', $avg);
     $statement->execute();
     $statement->closeCursor();
+}
+
+function get_first_player_id() {
+    global $db;
+    $query = 'SELECT player_id FROM players
+              ORDER BY player_id';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $player = $statement->fetch();
+    $statement->closeCursor();
+    return $player[0];
 }
 ?>

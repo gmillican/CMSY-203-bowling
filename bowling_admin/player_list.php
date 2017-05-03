@@ -23,25 +23,27 @@
         <!-- display a table of players -->
         <h2><?php echo $team_name; ?></h2>
 		
-		<label>Wins: <?php echo $team_wins; ?></label> 
+		<label>Wins: <?php echo $team_wins;
+							$team_wins++;?></label> 
 		<form action="." method="post">
                     <input type="hidden" name="action"
                            value="add_win">
                     <input type="hidden" name="team_id"
                            value="<?php echo $team_id; ?>">
 					<input type="hidden" name="wins"
-                           value="<?php echo $team_wins + 1; ?>">   
+                           value="<?php echo $team_wins; ?>">   
                     <input type="submit" value="+">
         </form><br>
 		
-		<label>Losses: <?php echo $team_loss; ?></label> 
+		<label>Losses: <?php echo $team_loss; 
+								$team_loss++;?></label> 
 		<form action="." method="post">
                     <input type="hidden" name="action"
                            value="add_loss">
                     <input type="hidden" name="team_id"
                            value="<?php echo $team_id; ?>">
 					<input type="hidden" name="loss"
-                           value="<?php echo $team_loss + 1; ?>"> 
+                           value="<?php echo $team_loss; ?>"> 
                     <input type="submit" value="+">
         </form><br>	
 		<br>
@@ -81,9 +83,19 @@
             </tr>
             <?php endforeach; ?>
         </table>
+		<br>
+		
         <p class="last_paragraph">
             <a href="?action=show_add_form">Add player</a>
+			<form action="." method="post">
+                    <input type="hidden" name="action"
+                           value="delete_team">
+                    <input type="hidden" name="team_id"
+                           value="<?php echo $team_id; ?>">
+                    <input type="submit" value="DELETE TEAM">
+			</form>
         </p>
+		
     </section>
 </main>
 <?php include '../view/footer.php'; ?>

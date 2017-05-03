@@ -15,7 +15,7 @@ if ($action == 'list_players') {
     $team_id = filter_input(INPUT_GET, 'team_id', 
             FILTER_VALIDATE_INT);
     if ($team_id == NULL || $team_id == FALSE) {
-        $team_id = 1;
+        $team_id = get_first_team_id();
     }
         $teams = get_teams();
         $team_name = get_team_name($team_id);
@@ -28,28 +28,13 @@ if ($action == 'list_players') {
         FILTER_VALIDATE_INT);
         
         if ($player_id == NULL || $player_id == FALSE) {
-            $player_id = 1;
-           // $error = 'Missing or incorrect player id.';
+            $player_id = get_first_player_id();
+           // $error = 'Missing or incorrget_first_player_id()ect player id.';
            // include('../errors/error.php');
         }
         include('player_view.php');
-        
-        
+         
     } 
     
-        /*
-        else 
-        {
-        $teams = get_teams();
-        $player = get_player($player_id);
-
-        // Get player data
-        $code = $player['player_code'];
-        $name = $player['first_name'];
-
-         
-        
-        include('player_view.php');
-    }
-        */
+       
 ?>
