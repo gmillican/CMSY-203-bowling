@@ -24,6 +24,17 @@ function get_player($player_id) {
     return $player;
 }
 
+function get_all_players() {
+    global $db;
+    $query = 'SELECT * FROM players';
+    $statement = $db->prepare($query);
+    // $statement->bindValue(":player_id", $player_id);
+    $statement->execute();
+    $players = $statement->fetchAll();
+    $statement->closeCursor();
+    return $players;
+}
+
 
 
 function delete_player($player_id) {
