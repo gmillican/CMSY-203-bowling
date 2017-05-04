@@ -24,6 +24,7 @@ function get_player($player_id) {
     return $player;
 }
 
+/*
 function get_all_players() {
     global $db;
     $query = 'SELECT * FROM players';
@@ -33,10 +34,25 @@ function get_all_players() {
     $statement->closeCursor();
     return $players;
 }
+*/
 
 function get_all_players_sorted($sortOrder) {
+    /* handles all sorts on player page except team name sort */
     global $db;
     $query = 'SELECT * FROM players ORDER BY ' . $sortOrder;
+    $statement = $db->prepare($query);
+   
+    $statement->execute();
+    $players = $statement->fetchAll();
+    $statement->closeCursor();
+    return $players;
+}
+
+function get_all_players_sorted_by_team() {
+    /* only used for player sort page sorted by team name */
+    global $db;
+    $query = 'SELECT first_name, last_name, sex, avg, players.team_id, teams.team_name FROM players
+        INNER JOIN teams ON players.team_id = teams.team_id ORDER BY teams.team_name';
     $statement = $db->prepare($query);
     $statement->execute();
     $players = $statement->fetchAll();
@@ -92,6 +108,7 @@ function edit_player($player_id, $team_id, $first_name, $last_name, $sex, $avg) 
 }
 
 function get_first_player_id() {
+    /* used to replace NULL where player id is needed in case first player was deleted */
     global $db;
     $query = 'SELECT player_id FROM players
               ORDER BY player_id';
