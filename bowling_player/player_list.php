@@ -2,32 +2,27 @@
      <link rel="stylesheet" type="text/css" href="../main.css">
     <?php include '../view/header.php'; ?>
     
-     <!-- 
-     <aside>
-        <h1>Team</h1>
-        <nav>
-        <ul>
-            display links for all teams 
-            <?php foreach($teams as $team) : ?>
-            <li>
-                <a href="?action=list_players&amp;team_id=<?php echo $team['team_id']; ?>">
-                    <?php echo $team['team_name']; ?>
-                </a>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-        </nav>
-    </aside>
-      -->
-    
-  
-   
-    <section>
- 
+     <section>
+         <form method="post">
+            <h4>Select Sort Order</h4>
+            <select name="player_sort_order">
+                <option value="last_name" selected>Last Name</option>
+                <option value="first_name">First Name</option>
+                <option value="sex">Sex</option>
+                <option value="avg">Average</option>
+                <option value="team_id">Team</option>
+            </select>
+            <input type="submit" value="Display Results"><br>
+         </form>
+         
+         
+        <?php $sortOrder = filter_input(INPUT_POST, 'player_sort_order'); ?>
+        <?php $players = get_all_players_sorted($sortOrder); ?>
+         
 <!-- display a table of players-->   
-     <?php $players = get_all_players(); ?>   
-     <!--   <h1><?php echo $team_name; ?><h2>  -->
-    <br>
+     
+     
+       <br>
         <table>
             <tr>
                 <th>First Name</th>

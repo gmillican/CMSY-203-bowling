@@ -28,13 +28,21 @@ function get_all_players() {
     global $db;
     $query = 'SELECT * FROM players';
     $statement = $db->prepare($query);
-    // $statement->bindValue(":player_id", $player_id);
     $statement->execute();
     $players = $statement->fetchAll();
     $statement->closeCursor();
     return $players;
 }
 
+function get_all_players_sorted($sortOrder) {
+    global $db;
+    $query = 'SELECT * FROM players ORDER BY ' . $sortOrder;
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $players = $statement->fetchAll();
+    $statement->closeCursor();
+    return $players;
+}
 
 
 function delete_player($player_id) {
