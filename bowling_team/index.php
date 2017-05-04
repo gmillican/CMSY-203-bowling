@@ -1,14 +1,8 @@
 
-
-
-
-
 <?php   //player
 require('../model/database.php');
 require('../model/player_db.php');
 require('../model/team_db.php');
-
-
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -22,7 +16,7 @@ if ($action == 'list_teams') {
     $team_id = filter_input(INPUT_GET, 'team_id', 
             FILTER_VALIDATE_INT);
     if ($team_id == NULL || $team_id == FALSE) {
-        $team_id = 1;
+        $team_id = get_first_team_id();
     }
     	//$team_win = get_team_wins($team_id)
         $teams = get_teams();

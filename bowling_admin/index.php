@@ -51,7 +51,7 @@ if ($action == 'list_players') {
     $first_name = filter_input(INPUT_POST, 'fName');
     $last_name = filter_input(INPUT_POST, 'lName');
     $sex = filter_input(INPUT_POST, 'sex');
-	$avg = filter_input(INPUT_POST, 'avg');
+    $avg = filter_input(INPUT_POST, 'avg', FILTER_VALIDATE_INT);
 	
     if ($team_id == NULL || $team_id == FALSE || $first_name == NULL || 
             $last_name == NULL || $sex == NULL || strlen($sex) > 1 || $avg == NULL || $avg == false) {
