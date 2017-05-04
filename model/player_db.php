@@ -24,18 +24,6 @@ function get_player($player_id) {
     return $player;
 }
 
-/*
-function get_all_players() {
-    global $db;
-    $query = 'SELECT * FROM players';
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $players = $statement->fetchAll();
-    $statement->closeCursor();
-    return $players;
-}
-*/
-
 function get_all_players_sorted($sortOrder) {
     /* handles all sorts on player page except team name sort */
     global $db;

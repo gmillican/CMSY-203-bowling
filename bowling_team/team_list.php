@@ -19,17 +19,7 @@
     </aside>
 
     <section>
-    
-    
- Sorted by
-<select name="card_type">
-<option value="visa" selected>Win</option>
-<option value="mastercard">Lost</option>
-<option value="discover">Team Name</option>
-<option value="discover">Team ID</option>
-
-</select>
-    
+  
         <!-- display a table of teams -->
         <h2><?php echo $team_name; ?></h2>
 		<table>
@@ -59,6 +49,7 @@
             </tr>
             <?php endforeach; ?>
         </table>
-    </section>
+        <a href="../">Home</a> <br><br>
+        </section>
 </main>
 <?php include '../view/footer.php'; ?>

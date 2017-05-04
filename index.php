@@ -12,9 +12,6 @@
             <a href="bowling_team">Team Information</a>
         </li>
         <li>
-            <a href="bowling_league">League Information</a>
-        </li>
-        <li>
             <a href="bowling_admin">Bowling Managers</a>
         </li>
     </ul>

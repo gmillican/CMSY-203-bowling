@@ -1,3 +1,4 @@
+DROP DATABASE bowling;
 CREATE DATABASE bowling;
 use bowling;
 drop user demo@localhost;
@@ -29,7 +30,6 @@ insert into players(first_name,last_name,sex,avg,team_id) values('Kate','McGuire
 insert into players(first_name,last_name,sex,avg,team_id) values('John','McGuire','M',173,4);
 insert into players(first_name,last_name,sex,avg,team_id) values('Kathy','McGuire','F',145,4);
 insert into players(first_name,last_name,sex,avg,team_id) values('Kim','Smith','F',125,4);
-
 
 
 
