@@ -3,6 +3,10 @@ require('../model/database.php');
 require('../model/player_db.php');
 require('../model/team_db.php');
 
+include('player_list.php');
+
+
+/*
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -31,10 +35,10 @@ if ($action == 'list_players') {
             $player_id = get_first_player_id();
            // $error = 'Missing or incorrget_first_player_id()ect player id.';
            // include('../errors/error.php');
-        }
-        include('player_view.php');
+        }include('player_view.php');
+        
          
     } 
     
-       
+ */     
 ?>
