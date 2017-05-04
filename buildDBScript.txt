@@ -35,3 +35,4 @@ insert into players(first_name,last_name,sex,avg,team_id) values('Kim','Smith','
 
 
 
+
