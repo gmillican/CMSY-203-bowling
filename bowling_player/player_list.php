@@ -5,7 +5,8 @@
      <section>
          <form method="post">   <!-- drop down to select sort order -->
             <h4>Select Sort Order</h4>
-            <select name="player_sort_order">
+           
+            <select name="player_sort_order" size="5">
                 <option value="last_name">Last Name</option>
                 <option value="first_name">First Name</option>
                 <option value="sex">Sex</option>
