@@ -58,7 +58,11 @@ if ($action == 'list_players') {
         $error = "Invalid player data. Check all fields and try again.";
 		$return_url = "?action=show_add_form";
         include('../errors/recoverable_error.php');
-    } else { 
+    } else if($avg < 0 || $avg > 300) {
+		$error = "Average Score must be within the range of 0-300";
+		$return_url = "?action=show_add_form";
+        include('../errors/recoverable_error.php');
+	} else { 
         add_player($team_id, $first_name, $last_name, $sex, $avg);
         header("Location: .?team_id=$team_id");
     }
@@ -75,7 +79,11 @@ if ($action == 'list_players') {
         $error = "Invalid player data. Check all fields and try again.";
         $return_url = "?team_id=$team_id";
         include('../errors/recoverable_error.php');
-    } else { 
+    }else if($avg < 0 || $avg > 300) {
+		$error = "Average Score must be within the range of 0-300";
+		$return_url = "?team_id=$team_id";
+        include('../errors/recoverable_error.php');
+	} else { 
         edit_player($player_id, $team_id, $first_name, $last_name, $sex, $avg);
         header("Location: .?team_id=$team_id");
     }
@@ -89,6 +97,7 @@ if ($action == 'list_players') {
 	}
 	else{
 		$teams = get_teams();
+		$player_info = get_player($player_id);
 		include('player_edit.php');
 	}
 } else if($action == 'change_loss'){

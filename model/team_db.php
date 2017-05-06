@@ -1,5 +1,6 @@
 <?php
 function get_teams() {
+	//function used widely to generate list of teams in all applications
     global $db;
     $query = 'SELECT * FROM teams
               ORDER BY team_id';

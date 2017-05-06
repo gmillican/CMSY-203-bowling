@@ -1,6 +1,5 @@
 <?php 
 include '../view/header.php'; 
-$player_info = get_player($player_id);
 ?>
  <link rel="stylesheet" type="text/css" href="main.css"> 
 <main>
