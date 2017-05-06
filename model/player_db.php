@@ -1,5 +1,6 @@
 <?php
 function get_players_by_team($team_id) {
+	//used in list_players to get the current list of players
     global $db;
     $query = 'SELECT * FROM players
               WHERE players.team_id = :team_id
@@ -13,6 +14,7 @@ function get_players_by_team($team_id) {
 }
 
 function get_player($player_id) {
+	//gets all information on a player, for use in the edit player form
     global $db;
     $query = 'SELECT * FROM players
               WHERE player_id = :player_id';
@@ -50,6 +52,8 @@ function get_all_players_sorted_by_team() {
 
 
 function delete_player($player_id) {
+	//used both for individual deletion and deletion of all players on a team 
+	//when deleting the entire team
     global $db;
     $query = 'DELETE FROM players
               WHERE player_id = :player_id';
@@ -60,6 +64,7 @@ function delete_player($player_id) {
 }
 
 function add_player($team_id, $first_name, $last_name, $sex, $avg) {
+	//takes all relevant data, adds new player, data is validated before function call
     global $db;
     $query = 'INSERT INTO players
                  (team_id, first_name, last_name, sex, avg)
@@ -76,6 +81,7 @@ function add_player($team_id, $first_name, $last_name, $sex, $avg) {
 }
 
 function edit_player($player_id, $team_id, $first_name, $last_name, $sex, $avg) {
+	//similar to add_player, requires the player_id so that it can update rather than insert
     global $db;
     $query = 'UPDATE players 
               SET team_id = :team_id,
