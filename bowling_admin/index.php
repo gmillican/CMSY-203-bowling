@@ -56,8 +56,13 @@ if ($action == 'list_players') {
     if ($team_id == NULL || $team_id == FALSE || $first_name == NULL || 
             $last_name == NULL || $sex == NULL || strlen($sex) > 1 || $avg == NULL || $avg == false) {
         $error = "Invalid player data. Check all fields and try again.";
-        include('../errors/error.php');
-    } else { 
+		$return_url = "?action=show_add_form";
+        include('../errors/recoverable_error.php');
+    } else if($avg < 0 || $avg > 300) {
+		$error = "Average Score must be within the range of 0-300";
+		$return_url = "?action=show_add_form";
+        include('../errors/recoverable_error.php');
+	} else { 
         add_player($team_id, $first_name, $last_name, $sex, $avg);
         header("Location: .?team_id=$team_id");
     }
@@ -67,13 +72,18 @@ if ($action == 'list_players') {
     $first_name = filter_input(INPUT_POST, 'fName');
     $last_name = filter_input(INPUT_POST, 'lName');
     $sex = filter_input(INPUT_POST, 'sex');
-	$avg = filter_input(INPUT_POST, 'avg');
+	$avg = filter_input(INPUT_POST, 'avg', FILTER_VALIDATE_INT);
 	
     if ($player_id == NULL || $player_id == false || $team_id == NULL || $team_id == FALSE || $first_name == NULL || 
             $last_name == NULL || $sex == NULL || strlen($sex) > 1 || $avg == NULL || $avg == false) {
         $error = "Invalid player data. Check all fields and try again.";
-        include('../errors/error.php');
-    } else { 
+        $return_url = "?team_id=$team_id";
+        include('../errors/recoverable_error.php');
+    }else if($avg < 0 || $avg > 300) {
+		$error = "Average Score must be within the range of 0-300";
+		$return_url = "?team_id=$team_id";
+        include('../errors/recoverable_error.php');
+	} else { 
         edit_player($player_id, $team_id, $first_name, $last_name, $sex, $avg);
         header("Location: .?team_id=$team_id");
     }
@@ -87,9 +97,10 @@ if ($action == 'list_players') {
 	}
 	else{
 		$teams = get_teams();
+		$player_info = get_player($player_id);
 		include('player_edit.php');
 	}
-} else if($action == 'add_loss'){
+} else if($action == 'change_loss'){
 	$team_id = filter_input(INPUT_POST, 'team_id', 
             FILTER_VALIDATE_INT);
 	$loss = filter_input(INPUT_POST, 'loss', 
@@ -98,10 +109,10 @@ if ($action == 'list_players') {
 		$error = "Invalid team data. Please try again.";
         include('../errors/error.php');
 	}else{
-		add_loss($team_id, $loss);
+		change_loss($team_id, $loss);
 		header("Location: .?team_id=$team_id");
 	}
-} else if ($action == 'add_win'){
+} else if ($action == 'change_win'){
 	$team_id = filter_input(INPUT_POST, 'team_id', 
             FILTER_VALIDATE_INT);
 	$wins = filter_input(INPUT_POST, 'wins', 
@@ -110,7 +121,7 @@ if ($action == 'list_players') {
 		$error = "Invalid team data. Please try again.";
         include('../errors/error.php');
 	}else{
-		add_win($team_id, $wins);
+		change_win($team_id, $wins);
 		header("Location: .?team_id=$team_id");
 	}
 }else if($action == 'show_team_form'){
@@ -119,7 +130,8 @@ if ($action == 'list_players') {
 	$team_name = filter_input(INPUT_POST, 'Name');
 	if($team_name == NULL){
 		$error = "Invalid team data. Please try again.";
-        include('../errors/error.php');
+		$return_url = "?action=show_team_form";
+        include('../errors/recoverable_error.php');
 	}else{
 		$team_id = add_team($team_name);
 		header("Location: .?team_id=$team_id");
