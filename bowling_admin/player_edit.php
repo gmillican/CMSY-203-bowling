@@ -1,6 +1,5 @@
 <?php 
 include '../view/header.php'; 
-$player_info = get_player($player_id);
 ?>
  <link rel="stylesheet" type="text/css" href="main.css"> 
 <main>
@@ -57,7 +56,7 @@ $player_info = get_player($player_id);
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=list_players">View player List</a>
+        <a href="index.php?action=list_players">Back to Player List</a>
     </p>
 
 </main>

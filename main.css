@@ -192,3 +192,7 @@ form {
 #add_team_form input[text] {
     width: 15em;
 }
+
+#remove_break_form{
+    display: inline;
+}

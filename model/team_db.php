@@ -1,5 +1,6 @@
 <?php
 function get_teams() {
+	//function used widely to generate list of teams in all applications
     global $db;
     $query = 'SELECT * FROM teams
               ORDER BY team_id';
@@ -76,7 +77,7 @@ function add_team($team_name){
 	return get_new_team_id();
 }
 
-function add_win($team_id, $wins){
+function change_win($team_id, $wins){
 	global $db;
     $query = 'UPDATE teams 
               SET won = :wins
@@ -88,7 +89,7 @@ function add_win($team_id, $wins){
     $statement->closeCursor();
 }
 
-function add_loss($team_id, $loss){
+function change_loss($team_id, $loss){
 	global $db;
     $query = 'UPDATE teams 
               SET lost = :loss

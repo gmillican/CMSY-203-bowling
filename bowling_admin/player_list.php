@@ -22,19 +22,26 @@
     <section>
         <!-- display a table of players -->
         <h2><?php echo $team_name; ?></h2>
+<<<<<<< HEAD
 			<table>
 			<tr>
 			
 		<label>Wins: <?php echo $team_wins; $team_wins++;?></label> 
 							
 		<form action="." method="post">
+=======
+		
+		<label>Wins: <?php echo $team_wins;?></label> <br>
+		<form action="." method="post" id = "remove_break_form">
+>>>>>>> dc6e9b7a42ab8be5f214582591f07cf38aac8a37
                     <input type="hidden" name="action"
-                           value="add_win">
+                           value="change_win">
                     <input type="hidden" name="team_id"
                            value="<?php echo $team_id; ?>">
 					<input type="hidden" name="wins"
-                           value="<?php echo $team_wins; ?>">   
+                           value="<?php echo ($team_wins + 1); ?>">   
                     <input type="submit" value="+">
+<<<<<<< HEAD
         </form><br>
 	
 	
@@ -43,14 +50,41 @@
 	
 		
 		<form action="." method="post">
+=======
+        </form>
+		<form action="." method="post" id = "remove_break_form">
                     <input type="hidden" name="action"
-                           value="add_loss">
+                           value="change_win">
+                    <input type="hidden" name="team_id"
+                           value="<?php echo $team_id; ?>">
+					<input type="hidden" name="wins"
+                           value="<?php echo ($team_wins - 1); ?>">   
+                    <input type="submit" value="-">
+        </form>
+		<br>
+		<br>
+		
+		<label>Losses: <?php echo $team_loss; ?></label> <br>
+		<form action="." method="post" id = "remove_break_form">
+>>>>>>> dc6e9b7a42ab8be5f214582591f07cf38aac8a37
+                    <input type="hidden" name="action"
+                           value="change_loss">
                     <input type="hidden" name="team_id"
                            value="<?php echo $team_id; ?>">
 					<input type="hidden" name="loss"
-                           value="<?php echo $team_loss; ?>"> 
+                           value="<?php echo ($team_loss + 1); ?>"> 
                     <input type="submit" value="+">
-        </form><br>	
+        </form>
+		<form action="." method="post" id = "remove_break_form">
+                    <input type="hidden" name="action"
+                           value="change_loss">
+                    <input type="hidden" name="team_id"
+                           value="<?php echo $team_id; ?>">
+					<input type="hidden" name="loss"
+                           value="<?php echo ($team_loss - 1); ?>"> 
+                    <input type="submit" value="-">
+        </form>
+		<br>	
 		<br>
 		
 		
@@ -100,7 +134,9 @@
                     <input type="hidden" name="team_id"
                            value="<?php echo $team_id; ?>">
                     <input type="submit" value="DELETE TEAM">
-			</form>
+			</form><br><br>
+			
+			<a href = "..\">Back to Menu</a>
         </p>
 		
     </section>
