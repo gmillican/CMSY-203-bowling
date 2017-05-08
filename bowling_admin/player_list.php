@@ -22,9 +22,11 @@
     <section>
         <!-- display a table of players -->
         <h2><?php echo $team_name; ?></h2>
-		
-		<label>Wins: <?php echo $team_wins;
-							$team_wins++;?></label> 
+			<table>
+			<tr>
+			
+		<label>Wins: <?php echo $team_wins; $team_wins++;?></label> 
+							
 		<form action="." method="post">
                     <input type="hidden" name="action"
                            value="add_win">
@@ -34,9 +36,12 @@
                            value="<?php echo $team_wins; ?>">   
                     <input type="submit" value="+">
         </form><br>
+	
+	
+		<label > Losses: <?php echo $team_loss; 
+								$team_loss++;?></div></label> 
+	
 		
-		<label>Losses: <?php echo $team_loss; 
-								$team_loss++;?></label> 
 		<form action="." method="post">
                     <input type="hidden" name="action"
                            value="add_loss">
@@ -47,6 +52,8 @@
                     <input type="submit" value="+">
         </form><br>	
 		<br>
+		
+		
         <table>
             <tr>
                 <th>First Name</th>

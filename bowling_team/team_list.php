@@ -18,18 +18,22 @@
         </nav>
     </aside>
 
+ 			
+
+
     <section>
   
         <!-- display a table of teams -->
         <h2><?php echo $team_name; ?></h2>
 		<table>
 		<th>
-		<label>Wins: <?php echo $team_wins; ?></label> 
-		<br>
+		<label> <div class = "section1">Wins: </div><div class = "section2"><?php echo $team_wins; ?></div></label> 
 		</th>
 		<th>		
-		<label>Losses: <?php echo $team_loss; ?></label> </th>
+		<label><div class = "section">Losses: </div><div class = "section2"><?php echo $team_loss; ?></div></label> 
+		</th>
 		</table>
+		<br>
 		
 	
         <table>
@@ -49,7 +53,8 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <a href="../">Home</a> <br><br>
+        </br>
+       <button > <div class = "button"><a href="../">Back1</a> <br></div></button>
         </section>
 </main>
 <?php include '../view/footer.php'; ?>

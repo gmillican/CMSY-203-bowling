@@ -80,7 +80,7 @@
             </tr>
             <?php endforeach; ?>
         </table>
-    <a href="../">Home</a> <br><br>
+  <button> <div class = "button"> <a href="../">Back</a> <br><br></button>
     </section> 
   
     <?php include '../view/footer.php'; ?>
