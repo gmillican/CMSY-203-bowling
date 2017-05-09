@@ -54,7 +54,7 @@
             <?php endforeach; ?>
         </table>
         </br>
-       <button > <div class = "button"><a href="../">Back1</a> <br></div></button>
+       <button > <div class = "button"><a href="../">Back</a> <br></div></button>
         </section>
 </main>
 <?php include '../view/footer.php'; ?>
