@@ -2,7 +2,6 @@
 require('../model/database.php');
 require('../model/player_db.php');
 require('../model/team_db.php');
-
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -10,7 +9,6 @@ if ($action == NULL) {
         $action = 'list_players';
     }
 }
-
 if ($action == 'list_players') {
     $team_id = filter_input(INPUT_GET, 'team_id', 
             FILTER_VALIDATE_INT);
@@ -149,7 +147,4 @@ else if($action == "delete_team"){
 		header("Location: .?team_id=$team_id");
 	}
 }
-
-
-
 ?>
